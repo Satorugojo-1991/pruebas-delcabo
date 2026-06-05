@@ -1,0 +1,187 @@
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<!-- Script obligatorio para que cargue el reCAPTCHA de Google -->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+<form class="sf-form-lux" action="https://webtolead.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+  
+  <!-- Configuración del Captcha y IDs de Organización -->
+  <input type="hidden" name='captcha_settings' value='{"keyname":"Del_Cabo","fallback":"true","orgId":"00Dam00001Z88bv","ts":""}'>
+  <input type="hidden" name="oid" value="00Dam00001Z88bv">
+  <input type="hidden" name="retURL" value="https://delcaboweddings.com/thank-you-your-dream-wedding/">
+
+  <!-- ===================== MODO DEBUG ACTIVADO ===================== -->
+  <input type="hidden" name="debug" value="1">
+  <input type="hidden" name="debugEmail" value="urios@ts4.mx">
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="first_name">First Name <span>*</span></label>
+      <input type="text" id="first_name" name="first_name" maxlength="40" required>
+    </div>
+    <div class="form-group">
+      <label for="last_name">Last Name <span>*</span></label>
+      <input type="text" id="last_name" name="last_name" maxlength="80" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email <span>*</span></label>
+      <input type="email" id="email" name="email" maxlength="80" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number <span>*</span></label>
+      <input type="text" id="phone" name="phone" maxlength="40" required>
+    </div>
+    <div class="form-group full">
+      <label for="00NWj00000IfqNP">Event Type <span>*</span></label>
+      <select id="00NWj00000IfqNP" name="00NWj00000IfqNP" title="Event Type" required>
+        <option value="">--None--</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Proposal">Proposal</option>
+        <option value="Vow Renewal">Vow Renewal</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Other Celebration">Other Celebration</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="00NWj00000IfqNO">Wedding Date (or Estimated) <span>*</span></label>
+      <input type="date" id="00NWj00000IfqNO" name="00NWj00000IfqNO" required>
+    </div>
+    <div class="form-group">
+      <label for="00NWj00000IfqNV">Estimated Number Of Guests <span>*</span></label>
+      <input type="text" id="00NWj00000IfqNV" name="00NWj00000IfqNV" size="20">
+    </div>
+    <div class="form-group">
+      <label for="00NWj00000IfqNJ">Estimated Event Budget <span>*</span></label>
+      <select id="00NWj00000IfqNJ" name="00NWj00000IfqNJ" title="Estimated event budget" required>
+        <option value="">--None--</option>
+        <option value="Less than $40,000">Less than $40,000</option>
+        <option value="$50,000 - $90,000">$50,000 - $90,000</option>
+        <option value="$100,000 - $150,000">$100,000 - $150,000</option>
+        <option value="$151,000 - $250,000">$151,000 - $250,000</option>
+        <option value="$251,000 - and above">$251,000 - and above</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="00NWj00000IfqNK">Estimated Planning Budget <span>*</span></label>
+      <select id="00NWj00000IfqNK" name="00NWj00000IfqNK" title="Estimated planning budget" required>
+        <option value="">--None--</option>
+        <option value="Less than $5,000">Less than $5,000</option>
+        <option value="$6,000 - $10,000">$6,000 - $10,000</option>
+        <option value="$10,001 - $15,000">$10,001 - $15,000</option>
+        <option value="$15,001 - $20,000">$15,001 - $20,000</option>
+        <option value="$20,001 - $25,000">$20,001 - $25,000</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Campos ocultos de ellos -->
+  <input type="hidden" name="lead_source" value="Website/Landing Page (Ads)">
+  <input type="hidden" name="recordType" value="012Wj000001C1pN">
+  <input type="hidden" name="00NWj00000IfqNe" value="1">
+
+  <!-- Bloque Visual del Captcha -->
+  <div class="captcha">
+    <div class="g-recaptcha" data-sitekey="6LeCKMMsAAAAANGI1Ks6X8U_ywljEimEPkBJN212"></div>
+  </div>
+
+  <!-- Botón -->
+  <div class="form-footer">
+    <button type="submit" class="submit-btn-lux">START PLANNING NOW</button>
+  </div><br/>
+  (Your information is always kept private and never shared)
+</form>
+
+<style>
+.sf-form-lux {
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Georgia', serif;
+  color: #333;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 40px;
+}
+.form-group.full {
+  grid-column: span 2;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.form-group label span {
+  color: #c00;
+}
+.sf-form-lux input,
+.sf-form-lux select {
+  width: 100%;
+  border: 1px solid #999;
+  padding: 10px;
+  font-size: 14px;
+  background: #f9f9f9;
+  outline: none;
+}
+.sf-form-lux select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 20 20' width='20'><path d='M5 7l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+.sf-form-lux input:focus,
+.sf-form-lux select:focus {
+  border-color: #000;
+  background: #fff;
+}
+.captcha {
+  margin: 25px 0;
+}
+.form-footer {
+  text-align: center;
+}
+.submit-btn-lux {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 14px 40px;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+.submit-btn-lux:hover {
+  background: #000;
+}
+.sf-form-lux input,
+.sf-form-lux select {
+  box-shadow: none !important;
+}
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .form-group.full {
+    grid-column: span 1;
+  }
+  .sf-form-lux {
+    padding: 0 15px;
+  }
+  .sf-form-lux input,
+  .sf-form-lux select {
+    font-size: 16px;
+    padding: 12px;
+  }
+  .form-group label {
+    font-size: 13px;
+  }
+  .submit-btn-lux {
+    width: 100%;
+    padding: 16px;
+  }
+  .captcha {
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>
