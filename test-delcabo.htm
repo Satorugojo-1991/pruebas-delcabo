@@ -1,55 +1,201 @@
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { 
+    var response = document.getElementById("g-recaptcha-response"); 
+    if (response == null || response.value.trim() == "") {
+        var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+        elems["ts"] = JSON.stringify(new Date().getTime());
+        document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+    } 
+ } 
+ setInterval(timestamp, 500); 
+</script>
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dam00001Z88bv" method="POST">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dam00001Z88bv" method="POST" class="salesforce-form">
 
-<input type="hidden" name="oid" value="00Dam00001Z88bv">
-<input type="hidden" name="retURL" value="http://">
+    <input type="hidden" name="captcha_settings" value='{"keyname":"Del_Cabo","fallback":"true","orgId":"00Dam00001Z88bv","ts":""}'>
+    <input type="hidden" name="oid" value="00Dam00001Z88bv">
+    <input type="hidden" name="retURL" value="https://delcaboevents.com/thank-you/">
 
-<!-- ===================== MODO DEBUG ACTIVADO ===================== -->
-<input type="hidden" name="debug" value="1">
-<input type="hidden" name="debugEmail" value="urios@ts4.mx">
+    <input type="hidden" name="debug" value="1">
+    <input type="hidden" name="debugEmail" value="urios@ts4.mx">
 
-<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required /><br>
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="first_name">FIRST NAME <span class="required">*</span></label>
+            <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="John" required />
+        </div>
+        <div class="form-group">
+            <label for="last_name">LAST NAME <span class="required">*</span></label>
+            <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Doe" required />
+        </div>
 
-<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required /><br>
+        <div class="form-group">
+            <label for="email">EMAIL ADDRESS <span class="required">*</span></label>
+            <input id="email" maxlength="80" name="email" type="email" placeholder="Your corporate email" required />
+        </div>
+        <div class="form-group">
+            <label for="phone">PHONE NUMBER (with country code)</label>
+            <input id="phone" maxlength="40" name="phone" type="text" placeholder="Country Code + 10 digits" />
+        </div>
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" required /><br>
+        <div class="form-group">
+            <label for="company">COMPANY / ORGANIZATION</label>
+            <input id="company" maxlength="40" name="company" type="text" required />
+        </div>
+        <div class="form-group">
+            <label for="00NWj00000IfqNV">GUEST COUNT <span class="required">*</span></label>
+            <select id="00NWj00000IfqNV" name="00NWj00000IfqNV" required>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200+</option>
+            </select>
+        </div>
 
-<label for="phone">Phone Number (with country code)</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+        <div class="form-group">
+            <label for="00NWj00000IfqNP">EVENT TYPE <span class="required">*</span></label>
+            <select id="00NWj00000IfqNP" name="00NWj00000IfqNP" required>
+                <option value="Incentive Trip">Incentive Trip</option>
+                <option value="Conference">Conference</option>
+                <option value="Social Event">Social Event</option>
+                <option value="Corporate Retreat">Corporate Retreat</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="00NWj00000IfqNL">EVENT LOCATION OF INTEREST <span class="required">*</span></label>
+            <select id="00NWj00000IfqNL" name="00NWj00000IfqNL" required>
+                <option value="Los Cabos">Los Cabos</option>
+                <option value="Puerto Vallarta - Punta de Mita">Puerto Vallarta - Punta de Mita</option>
+                <option value="San Miguel de Allende">San Miguel de Allende</option>
+            </select>
+        </div>
+    </div>
 
-<label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" required /><br>
+    <div class="form-group half-width">
+        <label for="00NWj00000IfqNO">ESTIMATED EVENT DATE <span class="required">*</span></label>
+        <input id="00NWj00000IfqNO" name="00NWj00000IfqNO" type="date" required />
+    </div>
 
-Number of Guests:<input  id="00NWj00000IfqNV" name="00NWj00000IfqNV" size="20" type="text" /><br>
+    <div class="form-group full-width">
+        <label for="00NWj00000IfqNT">MESSAGE</label>
+        <textarea id="00NWj00000IfqNT" name="00NWj00000IfqNT" placeholder="Please provide additional details about your event or any other pertinent information."></textarea>
+    </div>
 
-Event Type:<select  id="00NWj00000IfqNP" name="00NWj00000IfqNP" title="Event Type"><option value="">--None--</option>
-<option value="Conference">Conference</option>
-<option value="Social Event">Social Event</option>
-<option value="Other">Other</option>
-<option value="Corporate Retreat">Corporate Retreat</option>
-<option value="Meeting">Meeting</option>
-<option value="Incentive Trip">Incentive Trip</option>
-</select><br>
+    <input type="hidden" name="lead_source" value="Website/Contact (organic)">
+    <input type="hidden" name="recordType" value="012Wj000001C1m9">
+    <input type="hidden" name="00NWj00000IfqNg" value="1">
 
-Event Location:<select  id="00NWj00000IfqNL" name="00NWj00000IfqNL" required title="Event Location"><option value="">--None--</option><option value="Los Cabos">Los Cabos</option>
-<option value="Puerto Vallarta - Punta de Mita">Puerto Vallarta - Punta de Mita</option>
-<option value="San Miguel de Allende">San Miguel de Allende</option>
-</select><br>
-
-Event start date:
-<input id="00NWj00000IfqNO" name="00NWj00000IfqNO" type="date" required/><br>
-
-Message:<textarea  id="00NWj00000IfqNT" name="00NWj00000IfqNT" type="text" wrap="soft"></textarea><br>
-
-<!-- ===================== CAMPOS OCULTOS ===================== -->
-<!-- Lead Source oculto -->
-<input type="hidden" name="lead_source" value="Website/Contact (organic)">
-
-<!-- Lead Record Type oculto (Del Cabo events) -->
-<input type="hidden" name="recordType" value="012Wj000001C1m9">
-
-<!-- Del Cabo Events = TRUE -->
-<!-- Nota: Si no se llega a marcar en Salesforce, probaremos cambiando este value a "true" -->
-<input type="hidden" name="00NWj00000IfqNg" value="1">
-
-<input type="submit" name="submit">
+    <div class="form-footer">
+        <div class="g-recaptcha" data-sitekey="6LeCKMMsAAAAANGI1Ks6X8U_ywljEimEPkBJN212"></div>
+        <br>
+        <button type="submit" class="submit-btn">SUBMIT</button>
+    </div>
 </form>
+
+<style>
+    .salesforce-form {
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: "Work Sans", Sans-serif;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .full-width {
+        grid-column: span 2;
+    }
+
+    .half-width {
+        width: calc(50% - 10px);
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .required {
+        color: red;
+        margin-left: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+        padding: 12px;
+        border: 1px solid #999;
+        border-radius: 5px;
+        font-size: 15px;
+        color: #555;
+        background-color: #fff;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Estilo para los placeholders */
+    ::placeholder {
+        color: #ccc;
+    }
+
+    textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    .form-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .submit-btn {
+        background-color: #fff;
+        border: 2px solid #000;
+        color: #000;
+        padding: 12px 60px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 50px; /* Bordes muy redondeados como la imagen */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+        background-color: #000;
+        color: #fff;
+    }
+
+    /* Adaptación para móviles */
+    @media (max-width: 600px) {
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+        .full-width, .half-width {
+            grid-column: span 1;
+            width: 100%;
+        }
+    }
+</style>
