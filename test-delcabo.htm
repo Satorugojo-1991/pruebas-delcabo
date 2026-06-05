@@ -1,5 +1,4 @@
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
  function timestamp() { 
     var response = document.getElementById("g-recaptcha-response"); 
@@ -18,6 +17,7 @@
     <input type="hidden" name="oid" value="00Dam00001Z88bv">
     <input type="hidden" name="retURL" value="https://delcaboevents.com/thank-you/">
 
+    <!-- ===================== MODO DEBUG ACTIVADO ===================== -->
     <input type="hidden" name="debug" value="1">
     <input type="hidden" name="debugEmail" value="urios@ts4.mx">
 
@@ -89,8 +89,8 @@
     <input type="hidden" name="00NWj00000IfqNg" value="1">
 
     <div class="form-footer">
-<div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqy00PSwA6asHZF_73CHgtY"></div>       
-     <br>
+        <!-- Input oculto para forzar el bypass en el entorno de desarrollo -->
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="bypass">
         <button type="submit" class="submit-btn">SUBMIT</button>
     </div>
 </form>
@@ -106,7 +106,7 @@
 
     .form-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
         margin-bottom: 20px;
     }
@@ -152,7 +152,6 @@
         box-sizing: border-box;
     }
 
-    /* Estilo para los placeholders */
     ::placeholder {
         color: #ccc;
     }
@@ -176,7 +175,7 @@
         padding: 12px 60px;
         font-size: 18px;
         font-weight: bold;
-        border-radius: 50px; /* Bordes muy redondeados como la imagen */
+        border-radius: 50px;
         cursor: pointer;
         transition: all 0.3s ease;
         text-transform: uppercase;
@@ -188,7 +187,6 @@
         color: #fff;
     }
 
-    /* Adaptación para móviles */
     @media (max-width: 600px) {
         .form-grid {
             grid-template-columns: 1fr;
