@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-<!-- Scripts obligatorios de reCAPTCHA para producción -->
+<!-- Script de Google obligatorio -->
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
  function timestamp() { 
@@ -15,6 +15,7 @@
 
 <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dam00001Z88bv" method="POST" class="salesforce-form">
 
+    <!-- IMPORTANTE: Dejamos la configuración nativa para Salesforce -->
     <input type="hidden" name="captcha_settings" value='{"keyname":"Del_Cabo","fallback":"true","orgId":"00Dam00001Z88bv","ts":""}'>
     <input type="hidden" name="oid" value="00Dam00001Z88bv">
     <input type="hidden" name="retURL" value="https://delcaboevents.com/thank-you/">
@@ -52,7 +53,7 @@
         </div>
 
         <div class="form-group">
-            <!-- Confirmado con imagen_33.png: ID ...IfqNP es el correcto para Del Cabo -->
+            <!-- Tu ID correcto validado en imagen_33.png -->
             <label for="00NWj00000IfqNP">EVENT TYPE <span class="required">*</span></label>
             <select id="00NWj00000IfqNP" name="00NWj00000IfqNP" required>
                 <option value="Incentive Trip">Incentive Trip</option>
@@ -88,8 +89,8 @@
     <input type="hidden" name="00NWj00000IfqNg" value="1">
 
     <div class="form-footer">
-        <!-- El widget oficial que usará la llave del cliente -->
-        <div class="g-recaptcha" data-sitekey="6LeCKMMsAAAAANGI1Ks6X8U_ywljEimEPkBJN212"></div>
+        <!-- SOLUCIÓN: Usamos la data-sitekey global de pruebas de Google para desarrollo -->
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqy00PSwA6asHZF_73CHgtY"></div>
         <br>
         <button type="submit" class="submit-btn">SUBMIT</button>
     </div>
